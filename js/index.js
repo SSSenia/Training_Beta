@@ -25,21 +25,21 @@ async function getResponse() {
     let response = await fetch(`http://api.themoviedb.org/3/movie/now_playing?api_key=ebea8cfca72fdff8d2624ad7bbf78e4c&page=${currentPage}`);
     let content = await response.json();
     maxPage = content.total_pages;
-    let key;
-    let list = document.querySelector('.cards');
+    let key,
+        list = document.querySelector('.cards');
     list.innerText = '';
     for (key in content.results) {
-        if (content.results[key].poster_path != null)
-            list.innerHTML += `<a href="#" class="cards__card">
-            <img src="${"https://image.tmdb.org/t/p/w500/" + content.results[key].poster_path}" alt="${content.results[key].title}">
-            </a>`;
-        else
-            list.innerHTML += `<a href="#" class="cards__card">
-            <img src="../img/jpg/none.jpg" alt="${content.results[key].title}">
+        list.innerHTML += `<a href="#" class="cards__card">
+            <img src=
+            "${content.results[key].poster_path != null ? "https://image.tmdb.org/t/p/w500/" + content.results[key].poster_path : "../img/jpg/none.jpg"}"
+            alt="${content.results[key].title}">
+            <div class="cards__name"><p>${content.results[key].title}</p></div>
+            <div class="cards__rate">${content.results[key].vote_average}</div>
             </a>`;
     }
     navigationCheck();
 }
+
 
 //Startup setup
 getResponse();
@@ -68,51 +68,24 @@ const navigationCheck = () => {
 
     next.disabled = maxPage <= currentPage;
     last.disabled = maxPage <= currentPage;
-};
+},
+    navigate = (position) => {
+        currentPage = position;
+        getResponse();
+    }
 
 
 //Navigation buttons listeners
-first.addEventListener('click', () => {
-    currentPage = minPage;
-    getResponse();
-});
-prev.addEventListener('click', () => {
-    currentPage--;
-    getResponse();
-});
+first.addEventListener('click', () => { navigate(minPage) });
+prev.addEventListener('click', () => { navigate(currentPage - 1) });
 
-minus3.addEventListener('click', () => {
-    currentPage -= 3;
-    getResponse();
-});
-minus2.addEventListener('click', () => {
-    currentPage -= 2;
-    getResponse();
-});
-minus1.addEventListener('click', () => {
-    currentPage -= 1;
-    getResponse();
-});
+minus3.addEventListener('click', () => { navigate(currentPage - 3) });
+minus2.addEventListener('click', () => { navigate(currentPage - 2) });
+minus1.addEventListener('click', () => { navigate(currentPage - 1) });
 
-plus1.addEventListener('click', () => {
-    currentPage += 1;
-    getResponse();
-});
-plus2.addEventListener('click', () => {
-    currentPage += 2;
-    getResponse();
-});
-plus3.addEventListener('click', () => {
-    currentPage += 3;
-    getResponse();
-});
+plus1.addEventListener('click', () => { navigate(currentPage + 1) });
+plus2.addEventListener('click', () => { navigate(currentPage + 2) });
+plus3.addEventListener('click', () => { navigate(currentPage + 3) });
 
-next.addEventListener('click', () => {
-    currentPage++;
-    getResponse();
-});
-
-last.addEventListener('click', () => {
-    currentPage = maxPage;
-    getResponse();
-});
+next.addEventListener('click', () => { navigate(currentPage + 1) });
+last.addEventListener('click', () => { navigate(maxPage) });
