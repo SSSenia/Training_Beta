@@ -89,8 +89,8 @@ body main .cards .cards__card {
 }
 
 body main .cards .cards__card img {
-  width: 240px;
-  height: 305px;
+  width: 230px;
+  height: 355px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
@@ -102,7 +102,7 @@ body main .cards .cards__card:hover img {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   -webkit-filter: brightness(70%);
-  filter: brightness(70%);
+          filter: brightness(70%);
   -webkit-box-shadow: 0 0 8px 4px #474d59;
           box-shadow: 0 0 8px 4px #474d59;
 }
@@ -127,7 +127,7 @@ body main .navigation .navigation__elem button {
   border: 1px solid #474d59;
   background: #f2f3f5;
   padding: 10px 15px;
-  color: #a0a0a7;
+  color: #7d7d81;
 }
 
 body main .navigation .navigation__elem button:hover {
@@ -137,16 +137,16 @@ body main .navigation .navigation__elem button:hover {
 body main .navigation .navigation__elem .first {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  color: #56af95;
+  color: #3e7e6b;
 }
 
 body main .navigation .navigation__elem .last {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  color: #56af95;
+  color: #3e7e6b;
 }
 
 body main .navigation .navigation__elem #zero {
-  font-weight: 800;
-  color: #56af95;
+  font-weight: bold;
+  color: #3e7e6b;
 }

@@ -70,15 +70,14 @@ body {
                 display: inline-block;
                 margin: 15px 10px;
                 img {
-                    width: 240px;
-                    height: 305px;
+                    width: 230px;
+                    height: 355px;
                     object-fit: cover;
                     border-radius: 10px;
                     box-shadow: 0 0 7px 2px #474d59;
                 }
                 &:hover img {
                     transition: all 0.5s;
-                    -webkit-filter: brightness(70%);
                     filter: brightness(70%);
                     box-shadow: 0 0 8px 4px #474d59;
                 }
@@ -98,7 +97,7 @@ body {
                     border: 1px solid #474d59;
                     background: #f2f3f5;
                     padding: 10px 15px;
-                    color: #a0a0a7;
+                    color: #7d7d81;
                     &:hover {
                         background: #cdcecf;
                     }
@@ -106,16 +105,16 @@ body {
                 .first {
                     border-top-left-radius: 5px;
                     border-bottom-left-radius: 5px;
-                    color: #56af95;
+                    color: #3e7e6b;
                 }
                 .last {
                     border-top-right-radius: 5px;
                     border-bottom-right-radius: 5px;
-                    color: #56af95;
+                    color: #3e7e6b;
                 }
                 #zero {
-                    font-weight: 800;
-                    color: #56af95;
+                    font-weight: bold;
+                    color: #3e7e6b;
                 }
             }
         }
